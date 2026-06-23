@@ -341,7 +341,7 @@ async function loadStatus(){
 
         const response =
             await fetch(
-                "data/status.json"
+                "https://matrix-api.vignesh-jay.xyz/status.json"
             );
 
         const data =
@@ -426,8 +426,8 @@ async function loadInfrastructure(){
 
     const response =
         await fetch(
-            "data/infra.json"
-        );
+            "https://matrix-api.vignesh-jay.xyz/infra.json"
+            );
 
     const infra =
         await response.json();
