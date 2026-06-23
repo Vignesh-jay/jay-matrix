@@ -255,7 +255,7 @@ function updateCoreColor(
 loadStatus();
 setInterval(
     loadStatus,
-    30000
+    6000
 );
 
 function setServiceStatus(
@@ -422,6 +422,79 @@ function updateCards(){
     });
 }
 
+function updateStorageStatus(
+    elementId,
+    percent
+){
+
+    const el =
+        document.getElementById(
+            elementId
+        );
+
+    const value =
+        parseInt(percent);
+
+    el.classList.remove(
+        "pct-good",
+        "pct-warning",
+        "pct-critical"
+    );
+
+    if(value >= 80){
+
+        el.classList.add(
+            "pct-critical"
+        );
+
+    }else if(value >= 60){
+
+        el.classList.add(
+            "pct-warning"
+        );
+
+    }else{
+
+        el.classList.add(
+            "pct-good"
+        );
+    }
+}
+
+function updateStorageBar(barId, pct){
+
+    const bar =
+        document.getElementById(barId);
+
+    const value =
+        parseInt(pct);
+
+    bar.classList.remove(
+        "good",
+        "warning",
+        "critical"
+    );
+
+    if(value >= 80){
+
+        bar.classList.add(
+            "critical"
+        );
+
+    }else if(value >= 60){
+
+        bar.classList.add(
+            "warning"
+        );
+
+    }else{
+
+        bar.classList.add(
+            "good"
+        );
+    }
+}
+
 async function loadInfrastructure(){
 
     const response =
@@ -471,10 +544,101 @@ async function loadInfrastructure(){
         "ubuntuUptime"
     ).innerText =
         infra.ubuntu.uptime;
+
+    document.getElementById(
+        "macSSDPct"
+        ).innerText =
+        infra.macmini.ssdPct;
+
+    document.getElementById(
+        "macHDDPct"
+        ).innerText =
+        infra.macmini.hddPct;
+
+    document.getElementById(
+        "macRAMPct"
+        ).innerText =
+        infra.macmini.ramPct;
+
+    document.getElementById(
+        "macCPU"
+        ).innerText =
+        infra.macmini.cpu;
+
+    document.getElementById(
+        "ubuntuSSDPct"
+        ).innerText =
+        infra.ubuntu.ssdPct;
+
+    document.getElementById(
+        "ubuntuHDDPct"
+        ).innerText =
+        infra.ubuntu.hddPct;
+
+    document.getElementById(
+        "ubuntuRAMPct"
+        ).innerText =
+        infra.ubuntu.ramPct;
+
+    document.getElementById(
+        "ubuntuCPU"
+        ).innerText =
+        infra.ubuntu.cpu;
+
+    document.getElementById(
+        "jayFilesStorage"
+        ).innerText =
+        infra.macmini.hdd;
+
+    document.getElementById(
+        "jayFilesPct"
+        ).innerText =
+        infra.macmini.hddPct;
+
+    updateStorageStatus(
+        "jayFilesPct",
+        infra.macmini.hddPct
+    );
+
+    document.getElementById(
+        "jayCloudStorage"
+        ).innerText =
+        infra.ubuntu.hdd;
+
+    document.getElementById(
+        "jayCloudPct"
+        ).innerText =
+        infra.ubuntu.hddPct;
+
+    updateStorageStatus(
+        "jayCloudPct",
+        infra.ubuntu.hddPct
+    );
+
+    updateStorageBar(
+        "jayFilesBar",
+        infra.macmini.hddPct
+    );
+
+    updateStorageBar(
+        "jayCloudBar",
+        infra.ubuntu.hddPct
+    );
+    
+    document.getElementById(
+        "jayFilesBar"
+        ).style.width =
+        infra.macmini.hddPct;
+
+    document.getElementById(
+        "jayCloudBar"
+        ).style.width =
+        infra.ubuntu.hddPct;
+
 }
 
 loadInfrastructure();
 setInterval(
-    loadStatus,
-    30000
+    loadInfrastructure,
+    6000
 );

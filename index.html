@@ -204,35 +204,75 @@
 
                             <div class="storage-card">
 
-                                <h3>📁 Jay Files</h3>
+                                <div class="storage-card">
 
-                                <div class="progress">
+                                    <div class="storage-header">
+
+                                        <h3>📁 Jay Files</h3>
+
+                                        <span
+                                            id="jayFilesPct"
+                                            class="storage-pct">
+                                            0%
+                                        </span>
+
+                                    </div>
+
+                                    <div class="storage-bar">
+
+                                        <div
+                                            class="storage-fill"
+                                            id="jayFilesBar">
+                                        </div>
+
+                                    </div>
 
                                     <div
-                                        class="progress-fill"
-                                        style="width:30%">
+                                        class="storage-capacity"
+                                        id="jayFilesStorage">
+
+                                        Loading...
+
                                     </div>
 
                                 </div>
-
-                                <p>1.2 TB / 4 TB</p>
 
                             </div>
 
                             <div class="storage-card">
 
-                                <h3>☁️ Jay Cloud</h3>
+                                <div class="storage-card">
 
-                                <div class="progress">
+                                    <div class="storage-header">
+
+                                        <h3>☁️ Jay Cloud</h3>
+
+                                        <span
+                                            id="jayCloudPct"
+                                            class="storage-pct">
+                                            0%
+                                        </span>
+
+                                    </div>
+
+                                    <div class="storage-bar">
+
+                                        <div
+                                            class="storage-fill"
+                                            id="jayCloudBar">
+                                        </div>
+
+                                    </div>
 
                                     <div
-                                        class="progress-fill"
-                                        style="width:86%">
+                                        class="storage-capacity"
+                                        id="jayCloudStorage">
+
+                                        Loading...
+
                                     </div>
 
                                 </div>
-
-                                <p>430 GB / 500 GB</p>
 
                             </div>
 
@@ -304,54 +344,86 @@
 
                         <div class="infra-grid">
 
+                            <!-- Mac Mini -->
+
                             <div class="infra-card">
 
-                                <h3>🖥 Mac Mini</h3>
+                                <h3>🖥️ Mac Mini</h3>
 
-                                <div class="infra-item">
-                                    SSD
-                                    <span id="macSSD">--</span>
+                                <div class="metric">
+                                    <span>SSD</span>
+                                    <span>
+                                        <span id="macSSD">-</span>
+                                        <span class="metric-pct" id="macSSDPct">-</span>
+                                    </span>
                                 </div>
 
-                                <div class="infra-item">
-                                    HDD
-                                    <span id="macHDD">--</span>
+                                <div class="metric">
+                                    <span>HDD</span>
+                                    <span>
+                                        <span id="macHDD">-</span>
+                                        <span class="metric-pct" id="macHDDPct">-</span>
+                                    </span>
                                 </div>
 
-                                <div class="infra-item">
-                                    RAM
-                                    <span id="macRAM">--</span>
+                                <div class="metric">
+                                    <span>RAM</span>
+                                    <span>
+                                        <span id="macRAM">-</span>
+                                        <span class="metric-pct" id="macRAMPct">-</span>
+                                    </span>
                                 </div>
 
-                                <div class="infra-item">
-                                    Uptime
-                                    <span id="macUptime">--</span>
+                                <div class="metric">
+                                    <span>CPU</span>
+                                    <span id="macCPU">-</span>
+                                </div>
+
+                                <div class="metric">
+                                    <span>Uptime</span>
+                                    <span id="macUptime">-</span>
                                 </div>
 
                             </div>
+
+                            <!-- Ubuntu Server -->
 
                             <div class="infra-card">
 
                                 <h3>🐧 Ubuntu Server</h3>
 
-                                <div class="infra-item">
-                                    SSD
-                                    <span id="ubuntuSSD">--</span>
+                                <div class="metric">
+                                    <span>SSD</span>
+                                    <span>
+                                        <span id="ubuntuSSD">-</span>
+                                        <span class="metric-pct" id="ubuntuSSDPct">-</span>
+                                    </span>
                                 </div>
 
-                                <div class="infra-item">
-                                    HDD
-                                    <span id="ubuntuHDD">--</span>
+                                <div class="metric">
+                                    <span>HDD</span>
+                                    <span>
+                                        <span id="ubuntuHDD">-</span>
+                                        <span class="metric-pct" id="ubuntuHDDPct">-</span>
+                                    </span>
                                 </div>
 
-                                <div class="infra-item">
-                                    RAM
-                                    <span id="ubuntuRAM">--</span>
+                                <div class="metric">
+                                    <span>RAM</span>
+                                    <span>
+                                        <span id="ubuntuRAM">-</span>
+                                        <span class="metric-pct" id="ubuntuRAMPct">-</span>
+                                    </span>
                                 </div>
 
-                                <div class="infra-item">
-                                    Uptime
-                                    <span id="ubuntuUptime">--</span>
+                                <div class="metric">
+                                    <span>CPU</span>
+                                    <span id="ubuntuCPU">-</span>
+                                </div>
+
+                                <div class="metric">
+                                    <span>Uptime</span>
+                                    <span id="ubuntuUptime">-</span>
                                 </div>
 
                             </div>

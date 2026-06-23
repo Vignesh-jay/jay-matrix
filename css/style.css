@@ -914,3 +914,113 @@ body{
 
     align-items:center;
 }
+
+.metric{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:12px 0;
+border-bottom:1px solid rgba(255,255,255,.05);
+}
+
+.metric-pct{
+margin-left:10px;
+color:#00D4FF;
+font-weight:600;
+}
+
+#macCPU,
+#ubuntuCPU{
+color:#00D4FF;
+font-weight:700;
+}
+
+.storage-bar{
+    width:100%;
+    height:10px;
+    background:rgba(255,255,255,.08);
+    border-radius:999px;
+    overflow:hidden;
+    margin:15px 0;
+}
+
+.storage-fill{
+    height:100%;
+    width:0%;
+    background:#00D4FF;
+    border-radius:999px;
+    transition:.5s ease;
+    box-shadow:
+        0 0 10px #00D4FF,
+        0 0 20px #00D4FF;
+}
+
+.storage-header{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    margin-bottom:12px;
+}
+
+.storage-header h3{
+
+    margin:0;
+
+    font-size:22px;
+    color:white;
+}
+
+.storage-header span{
+
+    color:#00D4FF;
+    font-weight:700;
+
+    font-size:18px;
+}
+
+.storage-capacity{
+
+    text-align:center;
+
+    margin-top:12px;
+
+    color:white;
+
+    font-size:15px;
+    font-weight:600;
+}
+
+.storage-pct{
+
+    font-size:18px;
+    font-weight:700;
+
+    transition:.3s ease;
+}
+
+.storage-pct.pct-good{
+    color:#00D4FF !important;
+}
+
+.storage-pct.pct-warning{
+    color:#FFC857 !important;
+}
+
+.storage-pct.pct-critical{
+    color:#FF5F5F !important;
+}
+
+.storage-fill.good{
+    background:#00D4FF;
+}
+
+.storage-fill.warning{
+    background:#FFC857;
+}
+
+.storage-fill.critical{
+    background:#FF5F5F;
+}
+
