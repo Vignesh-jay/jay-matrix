@@ -424,63 +424,53 @@ function updateCards(){
 
 async function loadInfrastructure(){
 
-    try{
-
-        const response =
-            await fetch(
-                "data/infra.json"
-            );
-
-        const data =
-            await response.json();
-
-        document.getElementById(
-            "macSSD"
-        ).innerText =
-        data.macmini.ssd;
-
-        document.getElementById(
-            "macHDD"
-        ).innerText =
-        data.macmini.hdd;
-
-        document.getElementById(
-            "macRAM"
-        ).innerText =
-        data.macmini.ram;
-
-        document.getElementById(
-            "macUptime"
-        ).innerText =
-        data.macmini.uptime;
-
-        document.getElementById(
-            "ubuntuSSD"
-        ).innerText =
-        data.ubuntu.ssd;
-
-        document.getElementById(
-            "ubuntuHDD"
-        ).innerText =
-        data.ubuntu.hdd;
-
-        document.getElementById(
-            "ubuntuRAM"
-        ).innerText =
-        data.ubuntu.ram;
-
-        document.getElementById(
-            "ubuntuUptime"
-        ).innerText =
-        data.ubuntu.uptime;
-
-    }catch(error){
-
-        console.error(
-            "Infra load error",
-            error
+    const response =
+        await fetch(
+            "data/infra.json"
         );
-    }
+
+    const infra =
+        await response.json();
+
+    document.getElementById(
+        "macSSD"
+    ).innerText =
+        infra.macmini.ssd;
+
+    document.getElementById(
+        "macHDD"
+    ).innerText =
+        infra.macmini.hdd;
+
+    document.getElementById(
+        "macRAM"
+    ).innerText =
+        infra.macmini.ram;
+
+    document.getElementById(
+        "macUptime"
+    ).innerText =
+        infra.macmini.uptime;
+
+    document.getElementById(
+        "ubuntuSSD"
+    ).innerText =
+        infra.ubuntu.ssd;
+
+    document.getElementById(
+        "ubuntuHDD"
+    ).innerText =
+        infra.ubuntu.hdd;
+
+    document.getElementById(
+        "ubuntuRAM"
+    ).innerText =
+        infra.ubuntu.ram;
+
+    document.getElementById(
+        "ubuntuUptime"
+    ).innerText =
+        infra.ubuntu.uptime;
 }
 
 loadInfrastructure();
