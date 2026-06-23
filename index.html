@@ -150,29 +150,15 @@
                     ALL SYSTEMS OPERATIONAL
                 </h1>
 
-                <div class="system-bar">
+                <div class="system-info">
 
-                    <div>
-                        HOSTS
-                        <span>2</span>
-                    </div>
-
-                    <div>
-                        SERVICES
-                        <span>6</span>
-                    </div>
-
-                    <div>
-                        ONLINE
-                        <span id="onlineServices">5</span>
-                    </div>
-
-                    <div>
+                    <span class="label">
                         LAST CHECK
-                        <span id="lastCheck">
-                            --
-                        </span>
-                    </div>
+                    </span>
+
+                    <span id="lastCheck">
+                        --
+                    </span>
 
                 </div>
 
@@ -322,9 +308,25 @@
 
                                 <h3>🖥 Mac Mini</h3>
 
-                                <div>Jellyfin : ONLINE</div>
-                                <div>File Browser : ONLINE</div>
-                                <div>OTT Tunnel : ONLINE</div>
+                                <div class="infra-item">
+                                    SSD
+                                    <span id="macSSD">--</span>
+                                </div>
+
+                                <div class="infra-item">
+                                    HDD
+                                    <span id="macHDD">--</span>
+                                </div>
+
+                                <div class="infra-item">
+                                    RAM
+                                    <span id="macRAM">--</span>
+                                </div>
+
+                                <div class="infra-item">
+                                    Uptime
+                                    <span id="macUptime">--</span>
+                                </div>
 
                             </div>
 
@@ -332,9 +334,25 @@
 
                                 <h3>🐧 Ubuntu Server</h3>
 
-                                <div>Docker : ONLINE</div>
-                                <div>Nextcloud : ONLINE</div>
-                                <div>JayCloud Tunnel : ONLINE</div>
+                                <div class="infra-item">
+                                    SSD
+                                    <span id="ubuntuSSD">--</span>
+                                </div>
+
+                                <div class="infra-item">
+                                    HDD
+                                    <span id="ubuntuHDD">--</span>
+                                </div>
+
+                                <div class="infra-item">
+                                    RAM
+                                    <span id="ubuntuRAM">--</span>
+                                </div>
+
+                                <div class="infra-item">
+                                    Uptime
+                                    <span id="ubuntuUptime">--</span>
+                                </div>
 
                             </div>
 

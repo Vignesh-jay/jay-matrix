@@ -852,3 +852,65 @@ body{
 
     color:#94A3B8;
 }
+
+.infra-item{
+    display:flex;
+    justify-content:space-between;
+    padding:12px 0;
+    border-bottom:1px solid rgba(255,255,255,.05);
+}
+
+.infra-item span{
+    color:#00d4ff;
+    font-weight:700;
+}
+
+.system-info{
+
+    margin-top:10px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:4px;
+}
+
+.system-info .label{
+
+    font-size:11px;
+
+    letter-spacing:2px;
+
+    color:#6B7280;
+}
+
+.system-info #lastCheck{
+
+    font-size:14px;
+
+    color:#E5E7EB;
+}
+
+.system-info{
+
+    margin-top:12px;
+
+    padding:8px 20px;
+
+    border-radius:20px;
+
+    background:
+        rgba(255,255,255,.04);
+
+    border:
+        1px solid rgba(0,212,255,.1);
+
+    display:inline-flex;
+
+    flex-direction:column;
+
+    align-items:center;
+}

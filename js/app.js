@@ -181,7 +181,7 @@ function checkAllServices(){
 function updateSystemCore(){
 
     const total =
-        Object.keys(serviceStatus).length;
+    Object.keys(serviceStatus).length || 6;
 
     const online =
         Object.values(serviceStatus)
@@ -211,10 +211,6 @@ function updateSystemCore(){
     online === total
     ? "ONLINE"
     : "DEGRADED";
-
-    document.getElementById(
-        "onlineServices"
-    ).innerText = online;
 
     updateCoreColor(online);
 }
@@ -425,3 +421,70 @@ function updateCards(){
             : '<span class="offline">OFFLINE</span>';
     });
 }
+
+async function loadInfrastructure(){
+
+    try{
+
+        const response =
+            await fetch(
+                "data/infra.json"
+            );
+
+        const data =
+            await response.json();
+
+        document.getElementById(
+            "macSSD"
+        ).innerText =
+        data.macmini.ssd;
+
+        document.getElementById(
+            "macHDD"
+        ).innerText =
+        data.macmini.hdd;
+
+        document.getElementById(
+            "macRAM"
+        ).innerText =
+        data.macmini.ram;
+
+        document.getElementById(
+            "macUptime"
+        ).innerText =
+        data.macmini.uptime;
+
+        document.getElementById(
+            "ubuntuSSD"
+        ).innerText =
+        data.ubuntu.ssd;
+
+        document.getElementById(
+            "ubuntuHDD"
+        ).innerText =
+        data.ubuntu.hdd;
+
+        document.getElementById(
+            "ubuntuRAM"
+        ).innerText =
+        data.ubuntu.ram;
+
+        document.getElementById(
+            "ubuntuUptime"
+        ).innerText =
+        data.ubuntu.uptime;
+
+    }catch(error){
+
+        console.error(
+            "Infra load error",
+            error
+        );
+    }
+}
+
+loadInfrastructure();
+setInterval(
+    loadStatus,
+    30000
+);
