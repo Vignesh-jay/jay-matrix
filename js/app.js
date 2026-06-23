@@ -2,17 +2,7 @@ const PIN = "1515";
 
 let currentPin = "";
 
-const serviceStatus = {
-
-    streamr: true,
-    files: true,
-    cloud: true,
-
-    docker: true,
-    nextcloud: true,
-    tunnel: true
-
-};
+let serviceStatus = {};
 
 function updateDots(){
 
@@ -266,13 +256,10 @@ function updateCoreColor(
     }
 }
 
-checkAllServices();
-
-updateSystemCore();
-
+loadStatus();
 setInterval(
-    checkAllServices,
-    60000
+    loadStatus,
+    30000
 );
 
 function setServiceStatus(
@@ -350,4 +337,91 @@ function showModule(moduleId){
     event.currentTarget.classList.add(
         "active"
     );
+}
+
+async function loadStatus(){
+
+    try{
+
+        const response =
+            await fetch(
+                "data/status.json"
+            );
+
+        const data =
+            await response.json();
+
+        document.getElementById(
+            "lastCheck"
+        ).innerText =
+            data.lastCheck;
+
+        delete data.lastCheck;
+
+        serviceStatus = data;
+
+        updateSystemCore();
+        updateOrbitStatus();
+        updateCards();
+
+    }catch(error){
+
+        console.error(
+            "Status file error",
+            error
+        );
+    }
+}
+
+
+
+function updateOrbitStatus(){
+
+    Object.keys(serviceStatus)
+    .forEach(service=>{
+
+        const orbit =
+            document.getElementById(
+                `orbit-${service}`
+            );
+
+        if(!orbit) return;
+
+        orbit.classList.remove(
+            "online",
+            "offline"
+        );
+
+        orbit.classList.add(
+            serviceStatus[service]
+            ? "online"
+            : "offline"
+        );
+    });
+}
+
+function updateCards(){
+
+    Object.keys(serviceStatus)
+    .forEach(service=>{
+
+        const card =
+            document.getElementById(
+                `${service}Card`
+            );
+
+        if(!card) return;
+
+        const status =
+            card.querySelector(
+                ".status"
+            );
+
+        status.innerHTML =
+            serviceStatus[service]
+
+            ? '<span class="online">ONLINE</span>'
+
+            : '<span class="offline">OFFLINE</span>';
+    });
 }
