@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>JAY Matrix</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+    <!-- SECURITY SCREEN -->
+
+    <div id="lockScreen">
+
+        <div class="panel">
+
+            <h1>JΛY MATRIX</h1>
+
+            <p>SYSTEM CORE</p>
+
+            <div id="pinDisplay">
+
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+
+            </div>
+
+            <div class="keypad">
+
+                <button onclick="enterDigit('1')">1</button>
+                <button onclick="enterDigit('2')">2</button>
+                <button onclick="enterDigit('3')">3</button>
+
+                <button onclick="enterDigit('4')">4</button>
+                <button onclick="enterDigit('5')">5</button>
+                <button onclick="enterDigit('6')">6</button>
+
+                <button onclick="enterDigit('7')">7</button>
+                <button onclick="enterDigit('8')">8</button>
+                <button onclick="enterDigit('9')">9</button>
+
+                <button onclick="backspace()">⌫</button>
+                <button onclick="enterDigit('0')">0</button>
+                <button onclick="verifyPin()">✓</button>
+
+            </div>
+
+            <div id="message"></div>
+
+        </div>
+
+    </div>
+
+    <!-- ACCESS GRANTED -->
+
+    <div id="welcomeScreen">
+
+        <h1>ACCESS GRANTED</h1>
+
+        <p>WELCOME BACK</p>
+
+        <h2>MR. JAY</h2>
+
+    </div>
+
+    <!-- SYSTEM CORE -->
+
+    <div id="dashboard">
+
+        <div class="sidebar">
+
+            <div class="logo">
+                JΛY
+            </div>
+
+            <div class="nav-item active"
+                data-title="Services"
+                onclick="showModule('servicesModule')">
+                🖥
+            </div>
+
+            <div class="nav-item"
+                data-title="Storage"
+                onclick="showModule('storageModule')">
+                💾
+            </div>
+
+            <div class="nav-item"
+                data-title="Streamr"
+                onclick="showModule('mediaModule')">
+                🎬
+            </div>
+
+            <div class="nav-item"
+                data-title="Infrastructure"
+                onclick="showModule('infraModule')">
+                🔧
+            </div>
+
+            <div class="nav-item"
+                data-title="Settings"
+                onclick="showModule('settingsModule')">
+                ⚙
+            </div>
+
+        </div>
+
+        <div class="view active-view" id="dashboardView">
+            <div class="core-container">
+
+                <div class="core-ring">
+
+                    <div class="orbit-wrapper">
+                        <div class="orbit-ring">
+
+                            <div class="orbit-track outer"></div>
+                            <div class="orbit-track inner"></div>
+
+                            <div class="orbit service1 online" id="orbit-streamr">🎬</div>
+                            <div class="orbit service2 online" id="orbit-files">📁</div>
+                            <div class="orbit service3 online" id="orbit-cloud">☁️</div>
+                            <div class="orbit service4 online" id="orbit-docker">🐳</div>
+                            <div class="orbit service5 online" id="orbit-nextcloud">⚡</div>
+                            <div class="orbit service6 online" id="orbit-tunnel">🔗</div>
+
+                        </div>
+                    </div>
+
+                    <div class="core-center">
+
+                        <h2 id="onlineCount">6/6</h2>
+
+                            <span id="systemState">
+                                ONLINE
+                            </span>
+
+                    </div>
+
+                </div>
+
+                <h1 id="systemBanner">
+                    ALL SYSTEMS OPERATIONAL
+                </h1>
+
+                <div class="system-bar">
+
+                    <div>
+                        HOSTS
+                        <span>2</span>
+                    </div>
+
+                    <div>
+                        SERVICES
+                        <span>6</span>
+                    </div>
+
+                    <div>
+                        ONLINE
+                        <span id="onlineServices">5</span>
+                    </div>
+
+                    <div>
+                        LAST CHECK
+                        <span id="lastCheck">
+                            --
+                        </span>
+                    </div>
+
+                </div>
+
+                <div id="contentArea">
+
+                    <div class="module active-module" id="servicesModule">
+                        <div class="services-grid">
+                            <div class="service-card" id="streamrCard">
+                                🎬 Jay Streamr
+                                <div class="status">Checking...</div>
+                            </div>
+
+                            <div class="service-card" id="filesCard">
+                                📁 Jay Files
+                                <div class="status">Checking...</div>
+                            </div>
+
+                            <div class="service-card" id="cloudCard">
+                                ☁️ Jay Cloud
+                                <div class="status">Checking...</div>
+                            </div>
+
+                            <div class="service-card" id="dockerCard">
+                                🐳 Docker
+                                <div class="status">Checking...</div>
+                            </div>
+
+                            <div class="service-card" id="nextcloudCard">
+                                ⚡ Nextcloud
+                                <div class="status">Checking...</div>
+                            </div>
+
+                            <div class="service-card" id="tunnelCard">
+                                🔗 JayCloud Tunnel
+                                <div class="status">Checking...</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="storageModule" class="module">
+
+                        <div class="storage-grid">
+
+                            <div class="storage-card">
+
+                                <h3>📁 Jay Files</h3>
+
+                                <div class="progress">
+
+                                    <div
+                                        class="progress-fill"
+                                        style="width:30%">
+                                    </div>
+
+                                </div>
+
+                                <p>1.2 TB / 4 TB</p>
+
+                            </div>
+
+                            <div class="storage-card">
+
+                                <h3>☁️ Jay Cloud</h3>
+
+                                <div class="progress">
+
+                                    <div
+                                        class="progress-fill"
+                                        style="width:86%">
+                                    </div>
+
+                                </div>
+
+                                <p>430 GB / 500 GB</p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div id="mediaModule" class="module">
+
+                        <div class="media-grid">
+
+                            <div class="stat-card">
+
+                                <h2>742</h2>
+
+                                <p>Movies</p>
+
+                            </div>
+
+                            <div class="stat-card">
+
+                                <h2>118</h2>
+
+                                <p>TV Shows</p>
+
+                            </div>
+
+                            <div class="stat-card">
+
+                                <h2>4</h2>
+
+                                <p>Users</p>
+
+                            </div>
+
+                            <div class="stat-card">
+
+                                <h2>1</h2>
+
+                                <p>Active Streams</p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div id="settingsModule" class="module">
+
+                        <div class="settings-grid">
+
+                            <button>
+                                Change PIN
+                            </button>
+
+                            <button>
+                                Refresh Services
+                            </button>
+
+                            <button>
+                                Logout
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                    <div id="infraModule" class="module">
+
+                        <div class="infra-grid">
+
+                            <div class="infra-card">
+
+                                <h3>🖥 Mac Mini</h3>
+
+                                <div>Jellyfin : ONLINE</div>
+                                <div>File Browser : ONLINE</div>
+                                <div>OTT Tunnel : ONLINE</div>
+
+                            </div>
+
+                            <div class="infra-card">
+
+                                <h3>🐧 Ubuntu Server</h3>
+
+                                <div>Docker : ONLINE</div>
+                                <div>Nextcloud : ONLINE</div>
+                                <div>JayCloud Tunnel : ONLINE</div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <script src="js/app.js"></script>
+
+</body>
+
+</html>
