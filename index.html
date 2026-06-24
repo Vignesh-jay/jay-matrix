@@ -115,7 +115,23 @@
 
         <div class="view active-view" id="dashboardView">
             <div class="core-container">
+                <div id="notificationBell" onclick="toggleNotifications()">
+                    🔔
+                    <span id="alertCount">0</span>
+                </div>
+                <div id="notificationPanel">
 
+                    <h3>System Alerts</h3>
+
+                    <div id="alertList">
+
+                        <div class="alert-item">
+                            No alerts
+                        </div>
+
+                    </div>
+
+                </div>
                 <div class="core-ring">
 
                     <div class="orbit-wrapper">
@@ -166,32 +182,44 @@
 
                     <div class="module active-module" id="servicesModule">
                         <div class="services-grid">
-                            <div class="service-card" id="streamrCard">
+                            <div class="service-card"
+                                id="streamrCard"
+                                onclick="openService('streamr')">
                                 🎬 Jay Streamr
                                 <div class="status">Checking...</div>
                             </div>
 
-                            <div class="service-card" id="filesCard">
+                            <div class="service-card"
+                                id="filesCard"
+                                onclick="openService('files')">
                                 📁 Jay Files
                                 <div class="status">Checking...</div>
                             </div>
 
-                            <div class="service-card" id="cloudCard">
+                            <div class="service-card"
+                                id="cloudCard"
+                                onclick="openService('cloud')">
                                 ☁️ Jay Cloud
                                 <div class="status">Checking...</div>
                             </div>
 
-                            <div class="service-card" id="dockerCard">
+                            <div class="service-card"
+                                id="dockerCard"
+                                onclick="openService('docker')">
                                 🐳 Docker
                                 <div class="status">Checking...</div>
                             </div>
 
-                            <div class="service-card" id="nextcloudCard">
+                            <div class="service-card"
+                                id="nextcloudCard"
+                                onclick="openService('nextcloud')">
                                 ⚡ Nextcloud
                                 <div class="status">Checking...</div>
                             </div>
 
-                            <div class="service-card" id="tunnelCard">
+                            <div class="service-card"
+                                id="tunnelCard"
+                                onclick="openService('tunnel')">
                                 🔗 JayCloud Tunnel
                                 <div class="status">Checking...</div>
                             </div>

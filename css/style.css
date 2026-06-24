@@ -787,12 +787,30 @@ body{
     display:block;
 }
 
-.service-card:hover{
-    transform:translateY(-3px);
+.service-card{
+
+    cursor:pointer;
+
+    transition:
+        .25s ease;
 }
 
-.service-card{
-    transition:.3s;
+.service-card:hover{
+
+    transform:
+        translateY(-4px);
+
+    border-color:
+        rgba(0,212,255,.45);
+
+    box-shadow:
+        0 0 20px rgba(0,212,255,.15);
+}
+
+.service-card:active{
+
+    transform:
+        scale(.98);
 }
 
 .online{
@@ -1024,3 +1042,263 @@ font-weight:700;
     background:#FF5F5F;
 }
 
+/* ===================================
+   MOBILE & TABLET RESPONSIVE
+=================================== */
+
+@media (max-width: 1024px){
+
+    #contentArea{
+        width:95%;
+    }
+
+    .services-grid,
+    .infra-grid{
+        grid-template-columns:1fr;
+    }
+
+    .media-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media (max-width: 768px){
+
+    body{
+        overflow-y:auto;
+    }
+
+    #dashboard{
+
+        align-items:flex-start;
+
+        justify-content:flex-start;
+
+        overflow-y:auto;
+
+        padding-top:40px;
+        padding-bottom:140px;
+    }
+
+    .core-container{
+
+        padding-top:20px;
+        width:100%;
+    }
+
+    .core-container h1{
+        font-size:24px;
+        text-align:center;
+        padding:0 15px;
+    }
+
+    #systemBanner{
+        width:100%;
+        text-align:center;
+    }
+
+    .sidebar{
+
+        position:fixed;
+
+        left:50%;
+        bottom:20px;
+        top:auto;
+
+        transform:translateX(-50%);
+
+        flex-direction:row;
+
+        width:auto;
+
+        padding:12px;
+
+        z-index:1000;
+    }
+
+    .logo{
+        display:none;
+    }
+
+    .core-ring{
+
+        width:240px;
+        height:240px;
+        margin-top:40px;
+    }
+
+    .core-center{
+
+        width:130px;
+        height:130px;
+    }
+
+    .core-center h2{
+        font-size:34px;
+    }
+
+    .orbit-wrapper{
+
+        width:300px;
+        height:300px;
+    }
+
+    .outer{
+
+        width:300px;
+        height:300px;
+    }
+
+    .inner{
+
+        width:270px;
+        height:270px;
+
+        left:15px;
+        top:15px;
+    }
+
+    .service1{
+        transform:rotate(0deg) translateX(150px);
+    }
+
+    .service2{
+        transform:rotate(60deg) translateX(150px);
+    }
+
+    .service3{
+        transform:rotate(120deg) translateX(150px);
+    }
+
+    .service4{
+        transform:rotate(180deg) translateX(150px);
+    }
+
+    .service5{
+        transform:rotate(240deg) translateX(150px);
+    }
+
+    .service6{
+        transform:rotate(300deg) translateX(150px);
+    }
+
+    .services-grid,
+    .storage-grid,
+    .infra-grid,
+    .media-grid{
+
+        width:100%;
+        max-width:320px;
+
+        margin:30px auto 0;
+    }
+
+    #contentArea{
+
+        width:100%;
+
+        display:flex;
+        justify-content:center;
+    }
+
+    .panel{
+
+        width:90%;
+    }
+
+
+    .module{
+
+        padding-bottom:70px;
+    }
+}
+
+@media (max-width:480px){
+
+    .media-grid{
+        grid-template-columns:1fr;
+    }
+
+    .core-container h1{
+        font-size:22px;
+    }
+
+    .orbit{
+        width:45px;
+        height:45px;
+        font-size:18px;
+    }
+}
+
+#notificationBell{
+
+    position:absolute;
+
+    top:20px;
+    right:20px;
+
+    width:50px;
+    height:50px;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    border-radius:15px;
+
+    cursor:pointer;
+
+    background:
+        rgba(255,255,255,.05);
+
+    border:
+        1px solid rgba(0,212,255,.15);
+}
+
+#alertCount{
+
+    position:absolute;
+
+    top:-5px;
+    right:-5px;
+
+    width:20px;
+    height:20px;
+
+    border-radius:50%;
+
+    background:#FF4D6D;
+
+    font-size:12px;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+}
+
+#notificationPanel{
+
+    position:absolute;
+
+    top:80px;
+    right:20px;
+
+    width:320px;
+
+    display:none;
+
+    border-radius:20px;
+
+    padding:20px;
+
+    background:
+        rgba(10,15,30,.95);
+
+    border:
+        1px solid rgba(0,212,255,.15);
+
+    backdrop-filter:
+        blur(20px);
+}

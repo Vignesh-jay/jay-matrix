@@ -330,9 +330,11 @@ function showModule(moduleId){
 
         });
 
-    event.currentTarget.classList.add(
-        "active"
-    );
+    document
+        .querySelector(
+            `[onclick="showModule('${moduleId}')"]`
+        )
+        .classList.add("active");
 }
 
 async function loadStatus(){
@@ -359,6 +361,7 @@ async function loadStatus(){
         updateSystemCore();
         updateOrbitStatus();
         updateCards();
+        generateAlerts();
 
     }catch(error){
 
@@ -642,3 +645,98 @@ setInterval(
     loadInfrastructure,
     6000
 );
+
+const serviceUrls = {
+
+    streamr:
+        "https://streamr.vignesh-jay.xyz",
+
+    files:
+        "https://files.vignesh-jay.xyz",
+
+    cloud:
+        "https://cloud.vignesh-jay.xyz",
+
+    docker:
+        "https://portainer.vignesh-jay.xyz",
+
+    nextcloud:
+        "https://cloud.vignesh-jay.xyz",
+
+    tunnel:
+        "https://one.dash.cloudflare.com"
+};
+
+function openService(service){
+
+    if(!serviceStatus[service]){
+
+        alert(
+            `${service.toUpperCase()} is currently offline`
+        );
+
+        return;
+    }
+
+    window.open(
+        serviceUrls[service],
+        "_blank"
+    );
+}
+
+function toggleNotifications(){
+
+    const panel =
+        document.getElementById(
+            "notificationPanel"
+        );
+
+    panel.style.display =
+        panel.style.display === "block"
+        ? "none"
+        : "block";
+}
+
+function generateAlerts(){
+
+    const alerts = [];
+
+    Object.keys(serviceStatus)
+    .forEach(service=>{
+
+        if(!serviceStatus[service]){
+
+            alerts.push(
+                `${service.toUpperCase()} Offline`
+            );
+        }
+    });
+
+    const alertList =
+        document.getElementById(
+            "alertList"
+        );
+
+    const alertCount =
+        document.getElementById(
+            "alertCount"
+        );
+
+    alertCount.innerText =
+        alerts.length;
+
+    if(alerts.length === 0){
+
+        alertList.innerHTML =
+            "<div class='alert-item'>All Systems Operational</div>";
+
+        return;
+    }
+
+    alertList.innerHTML =
+        alerts
+        .map(alert =>
+            `<div class="alert-item">${alert}</div>`
+        )
+        .join("");
+}
