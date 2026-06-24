@@ -6,6 +6,91 @@ let serviceStatus = {};
 
 let previousStatus = {};
 
+
+function runStartupSequence(){
+
+    const startup =
+        document.getElementById(
+            "startupScreen"
+        );
+
+    const dashboard =
+        document.getElementById(
+            "dashboard"
+        );
+
+    const text =
+        document.getElementById(
+            "startupText"
+        );
+
+    const bar =
+        document.getElementById(
+            "startupBar"
+        );
+
+    startup.style.display =
+        "flex";
+
+    const steps = [
+
+        {
+            text:
+            "INITIALIZING CORE...",
+            width:"25%"
+        },
+
+        {
+            text:
+            "CHECKING SERVICES...",
+            width:"50%"
+        },
+
+        {
+            text:
+            "LOADING INFRASTRUCTURE...",
+            width:"75%"
+        },
+
+        {
+            text:
+            "JΛY MATRIX ONLINE",
+            width:"100%"
+        }
+
+    ];
+
+    let index = 0;
+
+    const interval =
+    setInterval(()=>{
+
+        text.innerText =
+            steps[index].text;
+
+        bar.style.width =
+            steps[index].width;
+
+        index++;
+
+        if(index >= steps.length){
+
+            clearInterval(interval);
+
+            setTimeout(()=>{
+
+                startup.style.display =
+                    "none";
+
+                dashboard.style.display =
+                    "flex";
+
+            },700);
+        }
+
+    },600);
+}
+
 function updateDots(){
 
     const dots =
@@ -900,88 +985,4 @@ function exportLogs(){
     addLog(
         "LOG EXPORT GENERATED"
     );
-}
-
-function runStartupSequence(){
-
-    const startup =
-        document.getElementById(
-            "startupScreen"
-        );
-
-    const dashboard =
-        document.getElementById(
-            "dashboard"
-        );
-
-    const text =
-        document.getElementById(
-            "startupText"
-        );
-
-    const bar =
-        document.getElementById(
-            "startupBar"
-        );
-
-    startup.style.display =
-        "flex";
-
-    const steps = [
-
-        {
-            text:
-            "INITIALIZING CORE...",
-            width:"25%"
-        },
-
-        {
-            text:
-            "CHECKING SERVICES...",
-            width:"50%"
-        },
-
-        {
-            text:
-            "LOADING INFRASTRUCTURE...",
-            width:"75%"
-        },
-
-        {
-            text:
-            "JΛY MATRIX ONLINE",
-            width:"100%"
-        }
-
-    ];
-
-    let index = 0;
-
-    const interval =
-    setInterval(()=>{
-
-        text.innerText =
-            steps[index].text;
-
-        bar.style.width =
-            steps[index].width;
-
-        index++;
-
-        if(index >= steps.length){
-
-            clearInterval(interval);
-
-            setTimeout(()=>{
-
-                startup.style.display =
-                    "none";
-
-                dashboard.style.display =
-                    "flex";
-
-            },700);
-        }
-
-    },600);
 }
