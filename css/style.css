@@ -1302,3 +1302,80 @@ font-weight:700;
     backdrop-filter:
         blur(20px);
 }
+
+.logs-container{
+
+    width:100%;
+
+    max-width:900px;
+
+    margin:auto;
+
+    padding:20px;
+
+    border-radius:20px;
+
+    background:
+        rgba(255,255,255,.05);
+
+    border:
+        1px solid rgba(0,212,255,.15);
+}
+
+.logs-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:20px;
+}
+
+.logs-header h2{
+
+    color:#00D4FF;
+}
+
+#logCount{
+
+    color:#94A3B8;
+}
+
+#logsList{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+
+    max-height:500px;
+
+    overflow-y:auto;
+}
+
+.log-entry{
+
+    padding:12px 15px;
+
+    border-radius:12px;
+
+    background:
+        rgba(255,255,255,.04);
+
+    border-left:
+        3px solid #00D4FF;
+
+    font-size:14px;
+}
+
+.log-time{
+
+    color:#00D4FF;
+
+    margin-right:10px;
+
+    font-weight:600;
+}

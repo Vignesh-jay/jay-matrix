@@ -4,6 +4,8 @@ let currentPin = "";
 
 let serviceStatus = {};
 
+let previousStatus = {};
+
 function updateDots(){
 
     const dots =
@@ -363,6 +365,27 @@ async function loadStatus(){
         updateCards();
         generateAlerts();
 
+        Object.keys(data).forEach(service => {
+
+        if(service === "lastCheck") return;
+
+        if(
+            previousStatus[service] !== undefined &&
+            previousStatus[service] !== data[service]
+        ){
+
+            addLog(
+                `${service.toUpperCase()} ${
+                    data[service]
+                    ? "ONLINE"
+                    : "OFFLINE"
+                }`
+            );
+        }
+
+    });
+    previousStatus = {...data};
+
     }catch(error){
 
         console.error(
@@ -370,6 +393,7 @@ async function loadStatus(){
             error
         );
     }
+
 }
 
 
@@ -739,4 +763,54 @@ function generateAlerts(){
             `<div class="alert-item">${alert}</div>`
         )
         .join("");
+}
+
+const systemLogs = [];
+addLog("JAY MATRIX STARTED");
+
+function addLog(message){
+
+    const timestamp =
+        new Date()
+        .toLocaleTimeString();
+
+    systemLogs.unshift({
+        timestamp,
+        message
+    });
+
+    renderLogs();
+}
+
+function renderLogs(){
+
+    const container =
+        document.getElementById(
+            "logsList"
+        );
+
+    if(!container) return;
+
+    container.innerHTML =
+        systemLogs
+        .slice(0,50)
+        .map(log => `
+
+            <div class="log-entry">
+
+                <span class="log-time">
+                    ${log.timestamp}
+                </span>
+
+                ${log.message}
+
+            </div>
+
+        `)
+        .join("");
+
+    document.getElementById(
+        "logCount"
+    ).innerText =
+        `${systemLogs.length} Entries`;
 }

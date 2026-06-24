@@ -94,9 +94,9 @@
             </div>
 
             <div class="nav-item"
-                data-title="Streamr"
-                onclick="showModule('mediaModule')">
-                🎬
+                data-title="System Logs"
+                onclick="showModule('logsModule')">
+                📜
             </div>
 
             <div class="nav-item"
@@ -308,39 +308,25 @@
 
                     </div>
 
-                    <div id="mediaModule" class="module">
+                    <div id="logsModule" class="module">
 
-                        <div class="media-grid">
+                        <div class="logs-container">
 
-                            <div class="stat-card">
+                            <div class="logs-header">
 
-                                <h2>742</h2>
+                                <h2>📜 System Logs</h2>
 
-                                <p>Movies</p>
-
-                            </div>
-
-                            <div class="stat-card">
-
-                                <h2>118</h2>
-
-                                <p>TV Shows</p>
+                                <span id="logCount">
+                                    0 Entries
+                                </span>
 
                             </div>
 
-                            <div class="stat-card">
+                            <div id="logsList">
 
-                                <h2>4</h2>
-
-                                <p>Users</p>
-
-                            </div>
-
-                            <div class="stat-card">
-
-                                <h2>1</h2>
-
-                                <p>Active Streams</p>
+                                <div class="log-entry">
+                                    Waiting for logs...
+                                </div>
 
                             </div>
 
