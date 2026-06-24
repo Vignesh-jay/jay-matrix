@@ -1,4 +1,4 @@
-const PIN = "1515";
+const PIN = "9524";
 
 let currentPin = "";
 
