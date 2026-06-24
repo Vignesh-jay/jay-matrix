@@ -1042,194 +1042,6 @@ font-weight:700;
     background:#FF5F5F;
 }
 
-/* ===================================
-   MOBILE & TABLET RESPONSIVE
-=================================== */
-
-@media (max-width: 1024px){
-
-    #contentArea{
-        width:95%;
-    }
-
-    .services-grid,
-    .infra-grid{
-        grid-template-columns:1fr;
-    }
-
-    .media-grid{
-        grid-template-columns:repeat(2,1fr);
-    }
-}
-
-@media (max-width: 768px){
-
-    body{
-        overflow-y:auto;
-    }
-
-    #dashboard{
-
-        align-items:flex-start;
-
-        justify-content:flex-start;
-
-        overflow-y:auto;
-
-        padding-top:40px;
-        padding-bottom:140px;
-    }
-
-    .core-container{
-
-        padding-top:20px;
-        width:100%;
-    }
-
-    .core-container h1{
-        font-size:24px;
-        text-align:center;
-        padding:0 15px;
-    }
-
-    #systemBanner{
-        width:100%;
-        text-align:center;
-    }
-
-    .sidebar{
-
-        position:fixed;
-
-        left:50%;
-        bottom:20px;
-        top:auto;
-
-        transform:translateX(-50%);
-
-        flex-direction:row;
-
-        width:auto;
-
-        padding:12px;
-
-        z-index:1000;
-    }
-
-    .logo{
-        display:none;
-    }
-
-    .core-ring{
-
-        width:240px;
-        height:240px;
-        margin-top:40px;
-    }
-
-    .core-center{
-
-        width:130px;
-        height:130px;
-    }
-
-    .core-center h2{
-        font-size:34px;
-    }
-
-    .orbit-wrapper{
-
-        width:300px;
-        height:300px;
-    }
-
-    .outer{
-
-        width:300px;
-        height:300px;
-    }
-
-    .inner{
-
-        width:270px;
-        height:270px;
-
-        left:15px;
-        top:15px;
-    }
-
-    .service1{
-        transform:rotate(0deg) translateX(150px);
-    }
-
-    .service2{
-        transform:rotate(60deg) translateX(150px);
-    }
-
-    .service3{
-        transform:rotate(120deg) translateX(150px);
-    }
-
-    .service4{
-        transform:rotate(180deg) translateX(150px);
-    }
-
-    .service5{
-        transform:rotate(240deg) translateX(150px);
-    }
-
-    .service6{
-        transform:rotate(300deg) translateX(150px);
-    }
-
-    .services-grid,
-    .storage-grid,
-    .infra-grid,
-    .media-grid{
-
-        width:100%;
-        max-width:320px;
-
-        margin:30px auto 0;
-    }
-
-    #contentArea{
-
-        width:100%;
-
-        display:flex;
-        justify-content:center;
-    }
-
-    .panel{
-
-        width:90%;
-    }
-
-
-    .module{
-
-        padding-bottom:70px;
-    }
-}
-
-@media (max-width:480px){
-
-    .media-grid{
-        grid-template-columns:1fr;
-    }
-
-    .core-container h1{
-        font-size:22px;
-    }
-
-    .orbit{
-        width:45px;
-        height:45px;
-        font-size:18px;
-    }
-}
-
 #notificationBell{
 
     position:absolute;
@@ -1378,4 +1190,539 @@ font-weight:700;
     margin-right:10px;
 
     font-weight:600;
+}
+
+.settings-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:15px;
+
+    max-width:700px;
+
+    margin:auto;
+}
+
+.settings-grid button{
+
+    padding:18px;
+
+    border:none;
+
+    border-radius:15px;
+
+    cursor:pointer;
+
+    color:white;
+
+    font-size:15px;
+
+    background:
+        rgba(255,255,255,.05);
+
+    border:
+        1px solid rgba(0,212,255,.15);
+
+    transition:.25s;
+}
+
+.settings-grid button:hover{
+
+    transform:
+        translateY(-3px);
+
+    background:
+        rgba(0,212,255,.1);
+
+    box-shadow:
+        0 0 20px rgba(0,212,255,.15);
+}
+
+#startupScreen{
+
+    position:fixed;
+
+    inset:0;
+
+    background:#050816;
+
+    display:none;
+
+    justify-content:center;
+    align-items:center;
+
+    z-index:9999;
+}
+
+.startup-container{
+
+    text-align:center;
+
+    width:400px;
+}
+
+.startup-container h1{
+
+    color:#00D4FF;
+
+    margin-bottom:30px;
+
+    text-shadow:
+        0 0 20px #00D4FF;
+}
+
+#startupText{
+
+    color:white;
+
+    margin-bottom:25px;
+
+    letter-spacing:2px;
+
+    font-size:15px;
+}
+
+.startup-progress{
+
+    width:100%;
+
+    height:10px;
+
+    border-radius:999px;
+
+    overflow:hidden;
+
+    background:
+        rgba(255,255,255,.08);
+}
+
+#startupBar{
+
+    width:0%;
+
+    height:100%;
+
+    background:#00D4FF;
+
+    box-shadow:
+        0 0 15px #00D4FF;
+
+    transition:.4s;
+}
+
+.system-meta{
+
+    margin-top:30px;
+
+    display:grid;
+
+    gap:10px;
+}
+
+.meta-item{
+
+    padding:15px;
+
+    border-radius:12px;
+
+    background:
+        rgba(255,255,255,.05);
+
+    border:
+        1px solid rgba(0,212,255,.15);
+
+    display:flex;
+
+    justify-content:space-between;
+}
+
+.meta-item span{
+    color:#94A3B8;
+}
+
+/* =========================================
+   MOBILE & TABLET OPTIMIZATION
+========================================= */
+
+@media (max-width:768px){
+
+    body{
+        overflow-x:hidden;
+        overflow-y:auto;
+    }
+
+    #dashboard{
+
+        justify-content:flex-start;
+        align-items:center;
+
+        padding:15px 0 90px;
+
+        overflow-y:auto;
+    }
+
+    .core-container{
+
+        width:100%;
+
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+    }
+
+    /* ======================
+       ARC REACTOR
+    ====================== */
+
+    .core-ring{
+
+        width:200px;
+        height:200px;
+    }
+
+    .core-center{
+
+        width:110px;
+        height:110px;
+    }
+
+    .core-center h2{
+
+        font-size:28px;
+    }
+
+    .core-center span{
+
+        font-size:14px;
+    }
+
+    .orbit-wrapper{
+
+        width:250px;
+        height:250px;
+    }
+
+    .outer{
+
+        width:250px;
+        height:250px;
+    }
+
+    .inner{
+
+        width:220px;
+        height:220px;
+
+        left:15px;
+        top:15px;
+    }
+
+    .orbit{
+
+        width:42px;
+        height:42px;
+
+        font-size:18px;
+
+        margin-left:-21px;
+        margin-top:-21px;
+    }
+
+    .service1{
+        transform:rotate(0deg) translateX(125px);
+    }
+
+    .service2{
+        transform:rotate(60deg) translateX(125px);
+    }
+
+    .service3{
+        transform:rotate(120deg) translateX(125px);
+    }
+
+    .service4{
+        transform:rotate(180deg) translateX(125px);
+    }
+
+    .service5{
+        transform:rotate(240deg) translateX(125px);
+    }
+
+    .service6{
+        transform:rotate(300deg) translateX(125px);
+    }
+
+    /* ======================
+       HEADINGS
+    ====================== */
+
+    .core-container{
+
+        width:100%;
+        max-width:430px;
+
+        padding-top: 60px;
+
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+    }
+
+    .system-info{
+
+        margin-top:10px;
+
+        padding:8px 18px;
+    }
+
+    .system-info .label{
+
+        font-size:10px;
+    }
+
+    #lastCheck{
+
+        font-size:12px;
+    }
+
+    /* ======================
+       CONTENT AREA
+    ====================== */
+
+    #contentArea{
+
+        width:100%;
+        max-width:380px;
+
+        margin:0 auto;
+
+        padding:0;
+    }
+
+    /* ======================
+       SERVICES
+    ====================== */
+
+    .services-grid{
+
+        width:100%;
+
+        grid-template-columns:1fr;
+
+        gap:12px;
+    }
+
+    .service-card{
+
+        padding:15px;
+    }
+
+    /* ======================
+       STORAGE
+    ====================== */
+
+    .storage-grid{
+
+        grid-template-columns:1fr;
+
+        gap:15px;
+    }
+
+    /* ======================
+       INFRASTRUCTURE
+    ====================== */
+
+    .infra-grid{
+
+        grid-template-columns:1fr;
+
+        gap:15px;
+    }
+
+    .infra-card{
+
+        padding:15px;
+    }
+
+    .metric{
+
+        font-size:14px;
+    }
+
+    /* ======================
+       LOGS
+    ====================== */
+
+    .logs-container{
+
+        width:100%;
+
+        padding:15px;
+    }
+
+    .logs-header h2{
+
+        font-size:20px;
+    }
+
+    #logsList{
+
+        max-height:280px;
+    }
+
+    .log-entry{
+
+        font-size:13px;
+    }
+
+    /* ======================
+       SETTINGS
+    ====================== */
+
+    .settings-grid{
+
+        grid-template-columns:1fr;
+
+        gap:12px;
+    }
+
+    /* ======================
+       NOTIFICATION BELL
+    ====================== */
+
+    #notificationBell{
+
+        position:fixed;
+
+        top:15px;
+        right:15px;
+    }
+
+    #notificationPanel{
+
+        width:90%;
+
+        right:5%;
+        left:5%;
+
+        top:70px;
+    }
+
+    /* ======================
+       BOTTOM NAVIGATION
+    ====================== */
+
+    .sidebar{
+
+        position:fixed;
+
+        left:50%;
+        bottom:12px;
+
+        top:auto;
+
+        transform:translateX(-50%);
+
+        flex-direction:row;
+
+        width:auto;
+
+        padding:10px;
+
+        gap:8px;
+
+        z-index:1000;
+    }
+
+    .logo{
+        display:none;
+    }
+
+    .nav-item{
+
+        width:42px;
+        height:42px;
+    }
+
+    .nav-item::before,
+    .nav-item::after{
+        display:none;
+    }
+
+    /* ======================
+       LOCK SCREEN
+    ====================== */
+
+    .panel{
+
+        width:92%;
+
+        padding:25px;
+    }
+
+    .keypad button{
+
+        height:55px;
+    }
+}
+
+
+/* EXTRA SMALL DEVICES */
+
+@media (max-width:480px){
+
+    .core-ring{
+
+        width:180px;
+        height:180px;
+    }
+
+    .core-center{
+
+        width:100px;
+        height:100px;
+    }
+
+    .core-center h2{
+
+        font-size:24px;
+    }
+
+    .orbit-wrapper{
+
+        width:220px;
+        height:220px;
+    }
+
+    .outer{
+
+        width:220px;
+        height:220px;
+    }
+
+    .inner{
+
+        width:190px;
+        height:190px;
+    }
+
+    .service1,
+    .service2,
+    .service3,
+    .service4,
+    .service5,
+    .service6{
+
+        transform-origin:center;
+    }
+
+    .service1{ transform:rotate(0deg) translateX(110px); }
+    .service2{ transform:rotate(60deg) translateX(110px); }
+    .service3{ transform:rotate(120deg) translateX(110px); }
+    .service4{ transform:rotate(180deg) translateX(110px); }
+    .service5{ transform:rotate(240deg) translateX(110px); }
+    .service6{ transform:rotate(300deg) translateX(110px); }
 }

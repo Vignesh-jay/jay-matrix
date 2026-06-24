@@ -6,9 +6,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>JAY Matrix</title>
+    <title>JΛY MATRIX v1.0</title>
 
     <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
 
 </head>
 
@@ -68,6 +69,26 @@
         <p>WELCOME BACK</p>
 
         <h2>MR. JAY</h2>
+
+    </div>
+
+    <div id="startupScreen">
+
+        <div class="startup-container">
+
+            <h1>JΛY MATRIX</h1>
+
+            <div id="startupText">
+                INITIALIZING...
+            </div>
+
+            <div class="startup-progress">
+
+                <div id="startupBar"></div>
+
+            </div>
+
+        </div>
 
     </div>
 
@@ -338,20 +359,41 @@
 
                         <div class="settings-grid">
 
-                            <button>
-                                Change PIN
+                            <button onclick="refreshMatrix()">
+                                🔄 Refresh Data
                             </button>
 
-                            <button>
-                                Refresh Services
+                            <button onclick="clearLogs()">
+                                🗑 Clear Logs
                             </button>
 
-                            <button>
-                                Logout
+                            <button onclick="exportLogs()">
+                                📥 Export Logs
+                            </button>
+
+                            <button onclick="logoutMatrix()">
+                                🚪 Logout
                             </button>
 
                         </div>
+                        <div class="system-meta">
 
+                            <div class="meta-item">
+                                <span>Version</span>
+                                <strong>v1.0.0</strong>
+                            </div>
+
+                            <div class="meta-item">
+                                <span>Build</span>
+                                <strong>2026.06.24</strong>
+                            </div>
+
+                            <div class="meta-item">
+                                <span>Refresh</span>
+                                <strong>6 Seconds</strong>
+                            </div>
+
+                        </div>
                     </div>
 
                     <div id="infraModule" class="module">

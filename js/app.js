@@ -49,6 +49,9 @@ function verifyPin(){
         .getElementById("message")
         .innerHTML =
         "ACCESS GRANTED";
+        addLog(
+            "MR. JAY LOGGED IN"
+        );
 
         setTimeout(()=>{
 
@@ -71,12 +74,7 @@ function verifyPin(){
                 .style.display =
                 "none";
 
-                document
-                .getElementById(
-                    "dashboard"
-                )
-                .style.display =
-                "flex";
+                runStartupSequence();
 
             },2000);
 
@@ -702,6 +700,10 @@ function openService(service){
         return;
     }
 
+    addLog(
+        `OPENED ${service.toUpperCase()}`
+    );
+
     window.open(
         serviceUrls[service],
         "_blank"
@@ -732,6 +734,9 @@ function generateAlerts(){
 
             alerts.push(
                 `${service.toUpperCase()} Offline`
+            );
+            addLog(
+                `${service.toUpperCase()} OFFLINE`
             );
         }
     });
@@ -791,6 +796,21 @@ function renderLogs(){
 
     if(!container) return;
 
+    if(systemLogs.length === 0){
+
+        container.innerHTML = `
+            <div class="log-entry">
+                No system events recorded
+            </div>
+        `;
+
+        document.getElementById(
+            "logCount"
+        ).innerText = "0 Entries";
+
+        return;
+    }
+
     container.innerHTML =
         systemLogs
         .slice(0,50)
@@ -813,4 +833,155 @@ function renderLogs(){
         "logCount"
     ).innerText =
         `${systemLogs.length} Entries`;
+}
+
+function refreshMatrix(){
+
+    loadStatus();
+    loadInfrastructure();
+
+    addLog(
+        "MANUAL REFRESH"
+    );
+}
+
+function clearLogs(){
+
+    systemLogs.length = 0;
+
+    renderLogs();
+
+    addLog(
+        "LOG HISTORY CLEARED"
+    );
+}
+
+function logoutMatrix(){
+
+    addLog(
+        "USER LOGGED OUT"
+    );
+
+    setTimeout(()=>{
+
+        location.reload();
+
+    },500);
+}
+
+function exportLogs(){
+
+    const content =
+        systemLogs
+        .map(log =>
+            `${log.timestamp} - ${log.message}`
+        )
+        .join("\n");
+
+    const blob =
+        new Blob(
+            [content],
+            {
+                type:"text/plain"
+            }
+        );
+
+    const link =
+        document.createElement("a");
+
+    link.href =
+        URL.createObjectURL(blob);
+
+    link.download =
+        "jay-matrix-logs.txt";
+
+    link.click();
+
+    addLog(
+        "LOG EXPORT GENERATED"
+    );
+}
+
+function runStartupSequence(){
+
+    const startup =
+        document.getElementById(
+            "startupScreen"
+        );
+
+    const dashboard =
+        document.getElementById(
+            "dashboard"
+        );
+
+    const text =
+        document.getElementById(
+            "startupText"
+        );
+
+    const bar =
+        document.getElementById(
+            "startupBar"
+        );
+
+    startup.style.display =
+        "flex";
+
+    const steps = [
+
+        {
+            text:
+            "INITIALIZING CORE...",
+            width:"25%"
+        },
+
+        {
+            text:
+            "CHECKING SERVICES...",
+            width:"50%"
+        },
+
+        {
+            text:
+            "LOADING INFRASTRUCTURE...",
+            width:"75%"
+        },
+
+        {
+            text:
+            "JΛY MATRIX ONLINE",
+            width:"100%"
+        }
+
+    ];
+
+    let index = 0;
+
+    const interval =
+    setInterval(()=>{
+
+        text.innerText =
+            steps[index].text;
+
+        bar.style.width =
+            steps[index].width;
+
+        index++;
+
+        if(index >= steps.length){
+
+            clearInterval(interval);
+
+            setTimeout(()=>{
+
+                startup.style.display =
+                    "none";
+
+                dashboard.style.display =
+                    "flex";
+
+            },700);
+        }
+
+    },600);
 }
