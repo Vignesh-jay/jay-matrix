@@ -10,6 +10,15 @@
 
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#00D4FF">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <meta name="apple-mobile-web-app-title" content="JΛY MATRIX">
+
+    <link rel="apple-touch-icon" href="favicon.ico">
 
 </head>
 
@@ -496,6 +505,16 @@
     </div>
 
     <script src="js/app.js"></script>
+    <script>
+
+        if("serviceWorker" in navigator){
+
+            navigator.serviceWorker
+            .register("js/sw.js");
+
+        }
+
+        </script>
 
 </body>
 
